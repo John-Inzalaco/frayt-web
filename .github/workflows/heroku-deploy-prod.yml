@@ -1,0 +1,27 @@
+name: Deploy to Heroku Prod
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.5.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "frayt-web"
+          heroku_email: "elijah@frayt.com"
+  update_config:
+    name: Configure
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Release Version
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku config:set REACT_APP_RELEASE_VERSION="${{ github.event.release.tag_name }}" -a frayt-web

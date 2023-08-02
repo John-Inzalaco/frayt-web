@@ -1,0 +1,34 @@
+// Put all browser specific fixes and hacks in this file
+
+// IE10/11 fix for invisible inputs
+@media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
+  input.bp4-input {
+    height: 43px !important;
+    padding-top: 7px !important;
+  }
+
+  .bp4-input-group.location-search-input {
+    input {
+      height: 43px !important;
+      padding-top: 7px !important;
+    }
+  }
+}
+
+// Firefox fix for invisible inputs
+html>/**/body, x:-moz-any-link {
+  input.bp4-input {
+    height: 43px !important;
+    padding: 0;
+    padding-left: 15px;
+  }
+
+  .bp4-input-group.location-search-input {
+    input {
+      height: 43px !important;
+      padding: 0 !important;
+      padding-left: 37px !important;
+    }
+  }
+}

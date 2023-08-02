@@ -1,0 +1,589 @@
+////////////////////////////
+// screens/Ship.js
+////////////////////////////
+
+.draggable-dropoff {
+  position: relative;
+  margin-bottom: 14;
+  background-color: #e7e7e7;
+  border-radius: 4px;
+  margin: 8px 0px;
+  padding: 1.5rem 0.75rem;
+
+  .move-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .move-button {
+      margin-left: 0.25rem;
+      border-radius: 50%;
+    }
+  }
+
+  .match-stop-alpha-id {
+    display: inline-block;
+    background: $primary;
+    color: $white;
+    font-weight: bold;
+    width: 1.25em;
+    height: 1.25em;
+    padding: 0.125em;
+    text-align: center;
+    line-height: 1;
+    font-size: 1rem;
+    border-radius: 4px;
+    margin-right: 0.375rem;
+  }
+
+  .drag-button {
+    cursor: grab;
+    color: $mediumgray;
+    float: right;
+    display: flex;
+    align-self: flex-end;
+    margin-top: -0.75rem;
+  }
+
+  .items {
+    .items-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .add-item {
+        border-radius: 50%;
+        color: $secondary;
+        border: 1px solid $secondary;
+      }
+    }
+
+    .item {
+      border-top: 1px solid $gray;
+
+      .bp4-collapse > div {
+        padding-bottom: 1rem;
+      }
+
+      .item-label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 0.125rem;
+
+        .toggle-item,
+        .remove-item {
+          flex-shrink: 0;
+          padding: 0.675rem;
+        }
+
+        .remove-item {
+          color: $warning;
+
+          // border-color: $warning;
+          &:disabled {
+            visibility: hidden;
+          }
+        }
+
+        .toggle-item {
+          color: $secondary;
+          // border-color: $secondary;
+        }
+
+        .item-desc {
+          display: block;
+          text-align: center;
+          font-weight: bold;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}
+
+.card {
+  background: #fff;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+
+  &.left-aligned {
+    justify-content: left;
+  }
+
+  h3 {
+    position: relative;
+    top: -4px;
+    margin-bottom: 0;
+  }
+
+  h3 > .text-button {
+    color: $textgray !important;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Montserrat';
+  }
+
+  p {
+    font-size: 0.85em;
+    margin-bottom: 0;
+  }
+
+  .cardImage {
+    flex: 0.9;
+    min-height: 52px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+
+    img {
+      width: 100%;
+      padding-right: 12px;
+    }
+  }
+
+  .cardText {
+    flex: 1.1;
+  }
+  label.cardTitle {
+    font-weight: 600;
+  }
+
+  &.cardSelected {
+    color: $secondary;
+
+    .text-button {
+      color: $secondary !important;
+    }
+  }
+}
+
+.shrinkSize .card {
+  flex-direction: column;
+
+  .cardText {
+    margin-top: 6px;
+  }
+}
+
+.shrinkSize h2.estimate {
+  font-size: 1.6em;
+}
+
+.buttonRight {
+  float: right !important;
+  min-height: 70px;
+  margin-top: 27px;
+  margin-bottom: 40px;
+}
+
+.PlacesAutocomplete {
+  position: relative;
+}
+
+.PlacesAutocompleteDropdownContainer {
+  width: 100%;
+  position: absolute;
+  z-index: 1000;
+  padding-top: 2px;
+  background-color: lighten($lightgray, 2%);
+  border: 1px solid $white;
+  border-top: 0;
+  padding-bottom: 0.5rem;
+
+  .suggestion-item {
+    padding: 0.5rem 1rem;
+  }
+  .suggestion-item--active {
+    background-color: $lightgray;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .dropoffMobileButton {
+    margin-top: 20px;
+    padding: 15px;
+  }
+
+  .buttonRight {
+    margin-top: 0px;
+    width: 100%;
+  }
+}
+
+////////////////////////////
+// screens/matches/Match.js
+////////////////////////////
+
+ol.stopList {
+  counter-reset: stop;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    display: block;
+    margin-bottom: 1em;
+    margin-left: 2em;
+  }
+
+  li:before {
+    display: inline-block;
+    content: '#' counter(stop);
+    counter-increment: stop;
+    width: 2em;
+    margin-left: -2em;
+    position: absolute;
+    color: $primary;
+    font-weight: bold;
+  }
+}
+
+.statusPane {
+  color: $textgray;
+
+  p.statusDescription {
+    margin-bottom: 0;
+
+    .statusRight {
+      float: right;
+
+      .bp4-icon {
+        position: relative;
+        top: -2px;
+      }
+    }
+  }
+
+  h2 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .bp4-card {
+    background-color: $lightgray;
+    border-left: 4px solid $primary;
+    border-radius: 0 5px 5px 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+
+    .bp4-progress-bar {
+      margin-bottom: 25px;
+    }
+
+    .cardInset {
+      background: $white;
+      margin-top: 15px;
+      padding: 8px;
+      padding: 10px;
+      display: flex;
+      flex: 1;
+      align-items: center;
+
+      p.statusDescription {
+        font-size: 0.9em;
+      }
+
+      p.statusNote {
+        padding-top: 4px;
+        font-size: 0.85em;
+        margin-bottom: 0;
+      }
+
+      h2 {
+        font-size: 1.05em;
+        margin-bottom: 0;
+      }
+
+      .cardInset--icon {
+        flex-shrink: 1;
+        padding-right: 12px;
+      }
+
+      .cardInset--data {
+        flex: 1;
+      }
+    }
+
+    .cardDivider {
+      display: block;
+      width: 100%;
+      height: 5px;
+      background: $white;
+    }
+
+    .cardThreeColumn {
+      display: flex;
+      margin-right: -10px;
+
+      .cardInset {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  a.backLink {
+    font-size: 1em;
+    font-weight: normal;
+    color: $mediumgray;
+
+    .bp4-icon {
+      margin-right: 3px;
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+////////////////////////////
+// screens/settings/Account.js
+////////////////////////////
+
+.infoCard {
+  background: $lightgray;
+
+  h2,
+  h3 {
+    margin-top: 0;
+  }
+
+  .sameRow {
+    display: flex;
+
+    .bp4-form-group {
+      flex: 1;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $mobileBp) {
+    .sameRow.exceptMobile {
+      display: initial;
+
+      .bp4-form-group {
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .accountCol {
+    margin-bottom: 20px;
+  }
+}
+
+////////////////////////////
+// screens/Login.js
+////////////////////////////
+.calloutError {
+  background-color: rgb(241, 222, 221) !important;
+  margin-bottom: 20px;
+}
+
+.UtilityScreen {
+  text-align: center;
+  h2 {
+    font-size: 4rem;
+    margin-top: 1em;
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: 767px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+////////////////////////////
+// screens/Register.js
+////////////////////////////
+@media screen and (max-width: 767px) {
+  .registerColumn.rightColumn {
+    padding: 40px 20px;
+  }
+}
+
+.agreement-dark {
+  .bp4-label,
+  span {
+    color: white;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+    &:hover,
+    &:focus {
+      color: #ccc;
+    }
+  }
+}
+
+.login-fullheight {
+  height: 100vh;
+  width: 100% !important;
+  border-bottom: 0px;
+  background: url('./assets/images/background-shippers.jpg') no-repeat center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.login-centered {
+  position: relative;
+  max-height: 100%;
+  overflow: auto;
+  min-height: 100vh;
+
+  .sameRow {
+    display: flex;
+
+    .bp4-form-group {
+      flex: 1;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.loginHeader {
+  color: $primary;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 2.8em;
+}
+
+.loginSubtitle {
+  color: $primary;
+  text-align: center;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.loginOptionSelect {
+  color: $white;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.loginDriver {
+  color: $white;
+  text-align: center;
+  font-size: 1.15em;
+  font-weight: normal;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: url('./assets/images/vehicles-alt.png') no-repeat left,
+    rgba(0, 102, 255, 1);
+  background-color: rgba(0, 102, 255, 1);
+
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 568px) {
+  .loginHeader {
+    font-size: 1.7em;
+  }
+  .unusedMobileColumn {
+    display: none;
+  }
+}
+
+.registerButton {
+  padding: 15px;
+  margin-top: 20px;
+  background: rgba($darkgray, 60%);
+  border-radius: 5px;
+
+  .registerLabel {
+    font-weight: 500;
+    color: $white;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+}
+
+.registerButton--shipScreen {
+  padding: 15px;
+  margin-top: 20px;
+  background: transparent;
+  border: 1px solid $mediumgray;
+  border-radius: 5px;
+
+  .registerLabel--shipScreen {
+    font-weight: 500;
+    color: $mediumgray;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+}
+
+.registerButton--shipScreen {
+  padding: 15px;
+  margin-top: 20px;
+  background: transparent;
+  border: 1px solid $darkgray;
+  border-radius: 5px;
+
+  .registerLabel--shipScreen {
+    font-weight: 500;
+    color: $darkgray;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+}
+
+.forgotPasswordLabel {
+  text-align: right;
+
+  .text-button {
+    color: $white;
+
+    &:hover {
+      color: $mediumgray;
+    }
+  }
+}
+
+.forgotPasswordLabelDark {
+  text-align: right;
+
+  a {
+    color: $darkgray;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}

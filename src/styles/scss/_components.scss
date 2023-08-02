@@ -1,0 +1,1102 @@
+////////////////////////////
+// screens/Home.js
+////////////////////////////
+
+.homepageCard {
+  background-color: $lightgray;
+  border: none;
+  box-shadow: none;
+  margin: 20px 0;
+}
+
+.leftColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 15px 15px;
+
+  .actionForm {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+
+    @media screen and (min-width: 992px) {
+      min-width: 600px;
+    }
+  }
+}
+
+.rightColumn,
+.leftColumn {
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.loginError {
+  color: white;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .homepageCard {
+    display: none;
+  }
+
+  .leftColumn {
+    margin-top: 50px;
+  }
+}
+
+////////////////////////////
+// components/Ship.js
+////////////////////////////
+
+.statusPane .bp4-card .cardInset div.cardOption {
+  display: flex;
+  flex: 2;
+  gap: 10px;
+}
+
+.statusPane .bp4-card .cardInset div.cardOption .cardInset--select {
+  flex: 1;
+  padding: 1px;
+}
+
+.statusPane .bp4-card .cardInset div.cardOption .cardInset--select button {
+  width: 100%;
+}
+
+.statusPane .bp4-card .cardInset div.cardOption .cardInset--button {
+  padding: 0;
+  flex: 1;
+  border-radius: 5px;
+  font-weight: 500;
+  background-color: #0266ff;
+}
+    .driver-options-container {
+      margin-top: 0px !important;
+    }
+
+    .preferred-container {
+      background: #fcfcfc;
+}
+.shipTab {
+  width: 100%;
+  margin-bottom: 20px;
+
+  // All tabs
+  .bp4-tabs > {
+    .bp4-tab-list {
+      .bp4-tab-indicator {
+        background-color: $secondary;
+      }
+      .bp4-tab {
+        padding: 8px 30px 8px 13px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-right: 0;
+
+        &.touched {
+          color: $secondary;
+        }
+
+        span:first-child {
+          &:after {
+            content: '.';
+          }
+        }
+      }
+    }
+
+    // Selected tab text
+    .bp4-tab-list .bp4-tab[aria-selected='true'] {
+      color: $secondary !important;
+    }
+
+    // The panel itself
+    .bp4-tab-panel {
+      background-color: $lightgray !important;
+      padding: 22px 22px;
+      width: 100%;
+      position: relative;
+      border-radius: 8px;
+    }
+
+    @include breakpoint-below(xl) {
+      .bp4-tab-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .bp4-tab-indicator-wrapper {
+          display: none;
+        }
+
+        .bp4-tab {
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          background-color: $gray !important;
+          padding: 5px 0;
+          text-align: center;
+          color: $white;
+
+          &.touched {
+            background-color: $secondary !important;
+            color: $white !important;
+          }
+
+          span:first-child {
+            &:after {
+              content: '';
+            }
+          }
+          span:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bp4-label {
+  color: $mediumgray;
+  font-weight: 500;
+
+  .bp4-text-muted {
+    color: $mediumgray;
+    font-size: 0.88em;
+    font-weight: 400;
+  }
+}
+
+.card {
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.cardText {
+  h3 {
+    margin-top: 0;
+
+    a {
+      color: $white;
+    }
+  }
+}
+
+.panelDivider {
+  height: 1px;
+  border-bottom: 4px solid $white;
+  background: $white;
+  margin-top: 30px;
+  margin-left: -22px;
+  margin-right: -22px;
+}
+
+.estimate-banner {
+  display: flex;
+
+  &__header {
+    cursor: pointer;
+  }
+
+  &__title {
+    background-color: #fff;
+    padding: 7px 10px;
+    font-size: 18px;
+    color: #ff9500;
+    position: relative;
+    top: -3px;
+    border-radius: 4px;
+    margin-right: 5px;
+  }
+
+  @media screen and (max-width: $tabletBp) {
+    display: flex;
+    justify-content: center;
+
+    .bp4-popover2-target {
+      width: 100%;
+      padding-bottom: 1rem;
+    }
+
+    &__header {
+      text-align: center;
+    }
+
+    &__title {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.item-form-group {
+  &__dimensions {
+    display: flex;
+    flex-direction: row;
+
+    & > div {
+      margin-right: 4px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
+.step-footer {
+  padding-top: 25px;
+  padding-bottom: 1px;
+}
+.spinnerLeft {
+  display: block;
+  width: 40px;
+  margin-bottom: 12px;
+}
+
+.radioLabel {
+  font-weight: 700;
+}
+
+.radioLabelInner {
+  cursor: pointer;
+  font-weight: 400;
+  display: block;
+  margin-top: 5px;
+  color: $mediumgray;
+}
+
+.appCushion {
+  margin-top: 75px;
+
+  @media (max-width: 767px) {
+    margin-top: 55px;
+  }
+}
+
+a.calloutLink {
+  // font-size: 0.7em;
+  // font-weight: normal;
+  // float: right;
+  // color: $mediumgray;
+  display: block;
+  margin-top: 6px;
+  margin-bottom: 3px;
+
+  .bp4-icon {
+    margin-left: 3px;
+    position: relative;
+    top: -1px;
+  }
+}
+
+.headerWithButton {
+  justify-content: space-between;
+}
+
+////////////////////////////
+// components/MatchesList.js
+////////////////////////////
+
+.barLoaderContainer {
+  clear: both;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+////////////////////////////
+// components/MatchRow.js
+////////////////////////////
+
+.matchRow {
+  display: flex;
+  background-color: $lightgray;
+  border-left: 4px solid $primary;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+
+  .matchRow__container {
+    padding: 25px;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 100;
+    flex-wrap: wrap;
+
+    &:last-of-type {
+      flex: 20;
+      justify-content: center;
+      border-left: 3px solid $white;
+    }
+
+    .matchRow__actions {
+      margin: 0 20px;
+    }
+
+    @media (max-width: 767px) {
+      padding: 17px;
+    }
+  }
+
+  .matchRow__subrow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+
+    &:last-of-type {
+      margin: 0px;
+    }
+
+    @media (max-width: 767px) {
+      margin-right: 0;
+    }
+
+    .matchRow--header {
+      background-color: transparent;
+      padding: 0 0 10px 0;
+
+      .matchRow__label {
+        color: $mediumgray;
+        font-size: 15px;
+      }
+
+      h3 {
+        font-weight: 600;
+        font-size: 18px;
+        color: $textgray;
+      }
+
+      &:last-of-type {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .matchRow__category {
+    flex: 1.3;
+    background-color: $white;
+    border-radius: 4px;
+    padding: 20px 40px;
+    margin: 10px;
+    color: $mediumgray;
+
+    @media screen and (max-width: 1024px) {
+      min-width: 200px;
+    }
+
+    @media screen and (min-width: 767px) {
+      flex: 1;
+      padding: 10px 15px;
+      margin: 0px 0px 0px 5px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &.matchRow__category--large {
+        flex: 1.3;
+      }
+    }
+
+    .bp4-icon {
+      vertical-align: initial;
+    }
+  }
+
+  .matchRow__action {
+    flex-shrink: 1;
+  }
+
+  @media screen and (max-width: 767px) {
+    .matchRow__actionButton {
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .matchRow__container {
+      // padding: 10px;
+
+      &:first-child {
+        padding-bottom: 0px;
+      }
+    }
+
+    .matchRow__category {
+      padding: 10px 20px;
+      min-width: 200px;
+      margin: 0px;
+
+      &:not(.matchRow--header) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .matchRow__details {
+    flex-shrink: 1;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  .matchRow__label {
+    margin: 0 0 5px;
+    font-size: 14px;
+  }
+
+  .matchRow__icon {
+    margin-right: 4px;
+  }
+
+  .actionButton {
+    margin-top: 10px;
+  }
+}
+
+////////////////////////////
+// components/ReviewBox.js
+////////////////////////////
+
+.reviewBox {
+  border: 1px solid $gray;
+  border-radius: 8px;
+  padding: 20px 20px 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  background: $white;
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.4em;
+  }
+
+  button.reviewLink {
+    font-size: 0.7em;
+    font-weight: normal;
+    float: right;
+    color: $mediumgray;
+
+    .bp4-icon {
+      margin-left: 3px;
+      position: relative;
+    }
+  }
+
+  .oneHalf,
+  .oneThird {
+    display: flex;
+  }
+
+  .infoBox {
+    padding: 15px;
+    background: $lightgray;
+    margin-bottom: 15px;
+    border-radius: 4px;
+
+    &.infoBox--row {
+      flex: 1;
+    }
+
+    &.infoBox--icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &.infoBox--center {
+      text-align: center;
+
+      p {
+        margin-top: 8px;
+      }
+    }
+
+    &.infoBox--bold {
+      p {
+        font-weight: bold;
+      }
+    }
+
+    img {
+      width: auto;
+      max-height: 40px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    .infoBox__icon {
+      float: left;
+      margin-right: 6px;
+      color: #929292;
+    }
+
+    .infoBox--iconHalf {
+      flex-shrink: 1;
+      margin-right: 8px;
+
+      .bp4-icon {
+        margin-right: 0;
+      }
+    }
+
+    .infoBox--dataHalf {
+      flex: 1;
+    }
+
+    .heading {
+      font-size: 0.9em;
+      padding-bottom: 5px;
+    }
+  }
+
+  .oneThird > .infoBox {
+    font-size: 0.9em;
+    padding: 10px;
+
+    .heading {
+      padding-bottom: 5px;
+    }
+  }
+
+  .ratingBox {
+    &__interior {
+      justify-content: center;
+    }
+    a {
+      &:first-child {
+        span {
+          margin-top: 5px;
+        }
+      }
+
+      &:last-child {
+        span {
+          margin-bottom: 5px;
+        }
+      }
+      padding: 5px;
+    }
+  }
+
+  @media screen and (min-width: 767px) {
+    .oneHalfDesktop {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .infoBox {
+        &.infoBox--row {
+          margin-right: 10px;
+          margin-left: 10px;
+
+          &:first-child {
+            margin-left: 0px;
+          }
+
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .mobileSmallPad {
+      padding-top: 20px;
+    }
+  }
+}
+
+.couponBox .bp4-input-action {
+  height: 100%;
+}
+
+.reviewBoxInternal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+
+  .reviewBox {
+    border: none;
+  }
+
+  > span {
+    padding: 0 10px;
+    width: 100%;
+    @include breakpoint(md) {
+      width: 50%;
+    }
+
+    &.last {
+      margin-bottom: none;
+    }
+  }
+}
+
+.recent-address-select {
+  .bp4-button {
+    margin: 0;
+    position: relative;
+    top: -5px;
+
+    .bp4-icon {
+      margin: 12.5px !important;
+    }
+  }
+}
+
+.recent-address-select-overlay {
+  padding: 0;
+
+  > .title {
+    background: $white;
+    padding: 13px 15px 11px;
+    font-size: 16px;
+    font-weight: 'bold';
+  }
+
+  .bp4-menu-item {
+    border-radius: 0;
+    padding: 10px 15px;
+
+    &:hover {
+      background-color: lighten($secondary, 40%);
+    }
+
+    &.bp4-active {
+      background-color: $secondary;
+      color: $white;
+    }
+  }
+}
+
+.selectByRecentDriversSearch {
+  &.bp4-menu {
+    overflow: auto;
+    max-height: 300px;
+  }
+}
+
+.bp4-callout.bp4-intent-danger.bp4-callout-icon.preferredDriverSelectCallout {
+  span.bp4-icon.bp4-icon-error {
+    margin: 0px !important;
+  }
+}
+
+.bp4-callout.bp4-intent-success.bp4-callout-icon.preferredDriverSelectCallout {
+  span.bp4-icon.bp4-icon-tick {
+    margin: 0px !important;
+  }
+}
+
+.bp4-select-popover {
+  .bp4-input-group {
+    .bp4-input {
+      padding: 25px 15px;
+      border-bottom: 1px solid #d1d1d1;
+      border-radius: 3px 3px 0 0;
+
+      &:not(:first-child) {
+        padding-left: 40px;
+      }
+    }
+
+    .bp4-input-action button {
+      margin: 0;
+      border-radius: 0 3px 0 0;
+    }
+
+    .bp4-icon {
+      margin: 17px !important;
+    }
+  }
+}
+
+.col-xs.shrink,
+.col-sm.shrink,
+.col-md.shrink,
+.col-lg.shrink {
+  flex-grow: inherit;
+  flex-shrink: 0;
+}
+
+.dropoff-button {
+  color: #fff !important;
+  background-color: $secondary !important;
+
+  &.bp4-disabled {
+    background-color: $gray !important;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .desktop-hidden {
+    display: none !important;
+  }
+
+  .dropoff-button {
+    border-width: 1;
+    margin: 0;
+    display: flex;
+    align-self: flex-end;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .dropoff-button {
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+.compact-button {
+  transition: all 0.1s ease;
+  border: none;
+  background: transparent;
+  width: auto;
+  padding: 0.375rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $mediumgray !important;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+
+// TODO: This should be cleaned up and put in a better place, this was just a quick fix to make the item "Done" button blue
+.done-button:not(.bp4-disabled) {
+  background: $secondary !important;
+  color: $white !important;
+  border-color: $secondary !important;
+}
+
+.PhoneInput .PhoneInputInput {
+  @extend .bp4-input;
+
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background: #ffffff;
+  height: 30px;
+  line-height: 30px;
+  color: #182026;
+  font-weight: 400;
+  appearance: none;
+  width: 100%;
+}
+
+.bp4-popover2.popover {
+  &--color {
+    &__gray {
+      .bp4-popover2-content {
+        background-color: $lightgray;
+      }
+
+      .bp4-popover2-arrow-fill {
+        fill: $lightgray;
+      }
+    }
+  }
+
+  &--size {
+    &__md {
+      .bp4-popover2-content {
+        width: 500px;
+
+        @media screen and (max-width: $tabletBp) {
+          width: 350px;
+        }
+      }
+    }
+  }
+}
+
+.DuplicateMatch {
+  .bp4-button.active {
+    background-color: $secondary;
+    color: $white;
+  }
+
+  &__modal.bp4-popover2 {
+    .bp4-popover2-content {
+      max-width: 600px;
+      @media screen and (max-width: $tabletBp) {
+        max-width: 350px;
+      }
+      background-color: $lightgray;
+    }
+    .bp4-popover2-arrow-fill {
+      fill: $lightgray;
+    }
+
+    .bp4-input {
+      max-width: 350px;
+    }
+
+    .panelDivider {
+      margin-left: -20px;
+      margin-right: -20px;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.MatchScheduler {
+  &__container {
+    margin-top: 16px;
+    margin-bottom: 10px;
+    margin-left: 4px;
+  }
+
+  .datePicker {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.ShipperList {
+  &__item {
+    &.disabled {
+      td {
+        background-color: $lightgray;
+        color: $mediumgray;
+      }
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: $tabletBp) {
+    flex-direction: column;
+  }
+
+  > div {
+    display: flex;
+    flex: auto;
+    flex-grow: 1;
+    margin: 0 -0.5rem;
+    align-items: center;
+
+    &:last-child {
+      justify-content: flex-end;
+
+      @media screen and (max-width: $tabletBp) {
+        justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: $tabletBp) {
+      flex-direction: column;
+    }
+
+    > div {
+      width: 100%;
+      margin: 0 0.5rem;
+      > .bp4-popover-wrapper {
+        width: 100%;
+        > .bp4-popover-target {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .search-input {
+    @media screen and (min-width: $mobileBp) {
+      float: right;
+    }
+  }
+
+  select,
+  .bp4-input-group .bp4-input {
+    border-radius: 4px;
+    height: 43px;
+    min-height: none;
+    border: 1px solid $mediumgray;
+  }
+
+  .bp4-input-group,
+  .select {
+    margin: 1rem 0 0;
+  }
+
+  .select,
+  .search-input {
+    max-width: 250px;
+
+    @media screen and (max-width: $tabletBp) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.bp4-tab {
+  color: $primary;
+
+  &[aria-selected='true'],
+  &:not([aria-disabled='true']):hover {
+    color: $primary;
+  }
+}
+
+.bp4-tab-indicator-wrapper {
+  .bp4-tab-indicator {
+    background-color: $primary;
+  }
+}
+
+.form-errors {
+  background-color: $lightgray;
+  border-radius: 5px;
+  border: 1px solid lighten($warning, 20%);
+  color: $warning;
+  padding: 20px;
+  margin-bottom: 1rem;
+
+  ul {
+    padding-left: 1rem;
+
+    li {
+      p {
+        margin-bottom: 0;
+      }
+      margin-bottom: 5px;
+    }
+  }
+
+  > ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+}
+
+.input-addon {
+  &.bp4-button {
+    margin: 0;
+    padding: 21px 14px;
+    height: 43px;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+}
+
+.text-button {
+  cursor: pointer;
+  color: $secondary;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+
+  &:hover {
+    color: darken($secondary, 15%);
+  }
+}
+
+.date-time-card {
+  font-weight: 400;
+  font-size: 13;
+  margin-top: 6;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.bp4-timezone-select .bp4-tag {
+  margin: 0;
+  height: 43px;
+}
+
+.shipper-label {
+  text-transform: capitalize;
+  font-weight: 500;
+  &__email {
+    text-transform: lowercase;
+    color: $mediumgray;
+    font-weight: 300;
+  }
+}
+
+.driverDataCard {
+  &__subheader {
+    color: $mediumgray;
+  }
+  &__nameHeading {
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  &__cellHeader {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px;
+  }
+  &__profile {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 4px;
+    margin-right: 10px;
+  }
+  &__personal {
+    display: flex;
+  }
+  &__flair {
+    align-self: flex-end;
+  }
+}
+
+.appContent .bp4-input-group .selectByEmailButton {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+.selectByEmailPopover {
+  width: 100%;
+}

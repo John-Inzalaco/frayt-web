@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ff9500;
+  z-index: 10000;
+  opacity: 1;
+  -webkit-transition: opacity 500ms ease-in-out;
+  transition: opacity 500ms ease-in-out;
+}
+
+#innerLoader {
+  width: 250px;
+  position: absolute;
+  left: 50%;
+  margin-left: -125px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#innerLoader img.loaderLogo {
+  width: 250px;
+  height: auto;
+}
+
+#innerLoader img.loaderSpinner {
+  position: relative;
+  display: block;
+  margin: 6px auto 0;
+}

@@ -1,0 +1,8 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.lintTask.enable": true,
+  "search.useGlobalIgnoreFiles": true,
+  "search.exclude": {
+    "**/build": true
+  }
+}

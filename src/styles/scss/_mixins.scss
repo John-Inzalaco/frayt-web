@@ -1,0 +1,14 @@
+@use 'sass:map';
+
+@mixin breakpoint($size) {
+  @media screen and (min-width: map.get($screen-sizes, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-below($size) {
+  $max-width: map.get($screen-sizes, $size) - 1px;
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}

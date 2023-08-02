@@ -1,0 +1,534 @@
+////////////////////////////
+// Global
+////////////////////////////
+$contrast: light;
+//COLORS
+$white: #fcfcfc;
+$dark-gray: #383838;
+$light-gray: lighten($dark-gray, 55%);
+$gray-bg: lighten($light-gray, 20%);
+$orange: #ff9900;
+$blue: #0066ff;
+$green: #00c751;
+$red: #ff4444;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.appContent {
+  padding-bottom: 20px;
+  &.login {
+    padding-bottom: 0px;
+  }
+}
+
+// @media only screen and (min-width: 1200px) {
+// 	.appContent > .container {
+// 		min-width: 1184px;
+// 	}
+// }
+
+.appContent > .container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+////////////////////////////
+// Navigation
+////////////////////////////
+
+.bp4-navbar {
+  background-color: $primary;
+  color: $white;
+  box-shadow: none;
+  position: fixed;
+  top: 0;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.11);
+  .bp4-button {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: 'Montserrat';
+    margin-right: 5px;
+    transition: 0.25s ease;
+    border: none;
+  }
+  a .bp4-button:hover {
+    background: transparent;
+    color: $white;
+  }
+  .active > button {
+    color: $white;
+  }
+
+  .desktop-menu {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  .nav-divider {
+    display: none;
+  }
+
+  @media screen and (max-width: 767px) {
+    .desktop-menu {
+      display: none;
+    }
+
+    .desktop-logout {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: block;
+      opacity: 0;
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      left: 100vw;
+      top: 0px;
+      transition: left 0.3s, opacity 0.3s;
+
+      .mobile-menu-fade {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.66);
+      }
+
+      .mobile-menu-close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        padding: 15px;
+        cursor: pointer;
+      }
+      // TODO: Make spans blocks that can overflow
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        button {
+          height: 60px;
+        }
+      }
+      .mobile-menu-link-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
+
+        // set width to 90% to see how it looks with the fade
+        width: 100%;
+        background-color: #ff9500;
+      }
+    }
+
+    .mobile-menu-toggle {
+      display: block;
+      position: absolute;
+      right: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-right: 10px;
+
+      &.mobile-menu-toggle-hide {
+        display: none;
+      }
+    }
+
+    .mobile-menu-show {
+      display: block;
+      left: 0px;
+      opacity: 1;
+    }
+  }
+}
+
+.bp4-navbar-divider {
+  border: 0.75px solid $white;
+}
+
+////////////////////////////
+// Typography
+////////////////////////////
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i');
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: $secondary;
+
+  &:hover {
+    color: darken($secondary, 15%);
+  }
+}
+
+// The main intention of this is to remove the underline on the navigation buttons
+a:hover {
+  text-decoration: none !important;
+}
+
+h1.pageTitle {
+  // min-height: 70px;
+  // margin-top: 97px;
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: $primary;
+
+  @media (max-width: 767px) {
+    // margin-top: 75px;
+    margin-bottom: 5px;
+  }
+}
+
+body {
+  color: $textgray;
+  font-family: 'Montserrat';
+}
+
+////////////////////////////
+// Forms
+////////////////////////////
+
+label.bp4-label {
+  color: $mediumgray;
+}
+
+.bp4-input-group,
+.bp4-form-group {
+  input {
+    font-size: 15px !important;
+    padding: 21px 15px 22px;
+    box-shadow: none;
+    transition: all 0.2s ease;
+  }
+
+  &.bp4-input-group-icon > input {
+    padding-left: 40px !important;
+  }
+
+  .bp4-icon {
+    margin: 14px !important;
+    color: #929292;
+  }
+
+  &.location-search-input input {
+    padding: 21px 22px 22px 37px !important;
+  }
+
+  .bp4-input__addon {
+    background: $gray;
+    height: 43px;
+    line-height: 43px;
+    padding-left: 16px;
+    padding-right: 12px;
+    margin-right: 10px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &:not(.bp4-input__addon--breakpoint) {
+      min-width: 9em;
+
+      @include breakpoint-below(md) {
+        min-width: 4em;
+      }
+    }
+  }
+}
+
+.bp4-input:focus,
+.bp4-input.bp4-active,
+.bp4-card.bp4-interactive:hover,
+.bp4-card.bp4-interactive:active {
+  box-shadow: 0 2px 4px rgba(16, 22, 26, 0.3);
+}
+
+.bp4-file-upload-input {
+  box-shadow: none;
+  background-color: transparent;
+  border: 1px solid $mediumgray;
+  width: 150px;
+  font-weight: 500;
+
+  &:after {
+    display: none;
+  }
+}
+
+.bp4-html-select.select {
+  width: 100%;
+
+  select {
+    min-height: 43px;
+    background: $white;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: darken($white, 1%);
+      box-shadow: 0 2px 4px rgba(16, 22, 26, 0.3);
+      -webkit-box-shadow: 0 2px 4px rgba(16, 22, 26, 0.3);
+    }
+  }
+
+  .bp4-icon {
+    margin: 0 !important;
+  }
+}
+
+.bp4-file-input {
+  width: 100%;
+  .bp4-file-upload-input {
+    min-height: 43px;
+    padding: 6px 18px;
+  }
+}
+
+.bp4-slider {
+  margin-bottom: -10px;
+  .bp4-slider-axis {
+    .bp4-slider-label {
+      display: none;
+    }
+  }
+}
+
+.formRow {
+  display: flex;
+
+  .bp4-form-group {
+    margin-right: 22px;
+    flex: 1;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.whiteLabel > label {
+  color: #fff;
+}
+
+.formError {
+  color: $white;
+  background: $primary;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.bp4-control input:checked ~ .bp4-control-indicator {
+  background-color: $secondary;
+}
+
+.bp4-control:hover input:checked ~ .bp4-control-indicator {
+  background-color: darken($secondary, 15%);
+}
+
+.inlineCheckbox {
+  font-size: 0.9em;
+  display: inline;
+  margin-left: 6px;
+  font-weight: 500;
+  span.bp4-control-indicator {
+    margin-right: 4px;
+  }
+}
+
+////////////////////////////
+// Buttons
+////////////////////////////
+
+.appContent,
+.bp4-portal {
+  .bp4-button:not([class*='bp4-intent-']) {
+    background: none;
+    border: 1px solid $secondary;
+    border-radius: 4px;
+    font-family: 'Montserrat';
+    color: $secondary;
+    box-shadow: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &.minimalButton {
+      border: 0;
+      color: $textgray;
+      padding-left: 0;
+      padding-right: 0;
+
+      &:hover {
+        background: none;
+        border: none;
+        color: $secondary;
+      }
+
+      &.bp4-disabled,
+      :disabled {
+        border: none;
+      }
+    }
+
+    &.primaryButton {
+      color: $primary;
+      border: 1px solid $primary;
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+    &.primaryButtonFilled {
+      background: $primary;
+      color: $white;
+      border: 1px solid $primary;
+
+      &:hover {
+        background: darken($primary, 10%);
+      }
+    }
+
+    &.secondaryButton {
+      color: $secondary;
+      border: 1px solid $secondary;
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+    &.secondaryButtonFilled:not([class*='bp4-disabled']) {
+      background: $secondary;
+      color: $white;
+      border: 1px solid $secondary;
+
+      &:hover {
+        background: darken($secondary, 10%);
+      }
+
+      &.shipButton {
+        min-width: 200px;
+      }
+    }
+
+    &.warningButton {
+      color: $warning;
+      border: 1px solid $warning;
+
+      &:hover {
+        color: $white;
+        background: $warning;
+      }
+    }
+
+    &.whiteButton {
+      color: $white;
+      border: 1px solid $white;
+
+      &:hover {
+        color: $secondary;
+        background: $white;
+      }
+    }
+
+    &:disabled,
+    &.bp4-disabled {
+      border: 1px solid $mediumgray;
+      color: $mediumgray;
+
+      &:hover {
+        background: none;
+      }
+    }
+  }
+}
+
+.bp4-button:not([class*='bp4-intent-']):hover {
+  background-color: $secondary;
+  color: $white;
+
+  &.primaryButton {
+    background-color: $primary;
+  }
+}
+
+.bp4-button .bp4-icon {
+  color: inherit;
+}
+
+p.warningMessage {
+  margin-top: 15px;
+  padding: 12px;
+  background: lighten($warning, 34%);
+  border: 1px solid $warning;
+}
+
+.error {
+  color: $warning;
+  padding: 4px 0;
+}
+
+////////////////////////////
+// Animations
+////////////////////////////
+
+.basic-appear {
+  opacity: 0.01;
+  transform: translateX(200px);
+}
+.basic-appear.basic-appear-active {
+  opacity: 2;
+  transform: translateX(0px);
+  transition: all 0.4s ease-in-out;
+}
+
+////////////////////////////
+// Images
+////////////////////////////
+
+.centerImage {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $gray;
+}
+
+.u-text {
+  &--warning {
+    color: $warning;
+  }
+}
+
+table.bp4-html-table {
+  width: 100%;
+  td {
+    padding: 13px;
+
+    &.bp4-skeleton {
+      padding: 9px;
+      margin: 4px;
+    }
+  }
+}

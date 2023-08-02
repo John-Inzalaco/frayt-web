@@ -1,0 +1,36 @@
+////////////////////////////
+// Colors
+////////////////////////////
+
+$primary: #ff9500;
+$secondary: #162fda;
+$warning: #ff1a1a;
+$lightgray: #f3f3f3;
+$textgray: #373737;
+$mediumgray: #7f7f7f;
+$darkgray: #1e1e1e;
+$gray: #cdced0;
+$white: #ffffff;
+
+// Other
+$mobileBp: 767px;
+$tabletBp: 1024px;
+
+$positions: ('left', 'right', 'top', 'bottom');
+
+$pad-sizes: (
+  'none': 0,
+  'xs': 4px,
+  'sm': 8px,
+  'md': 12px,
+  'lg': 16px,
+  'xl': 32px,
+);
+
+$screen-sizes: (
+  'xs': 0,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+);

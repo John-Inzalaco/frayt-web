@@ -1,0 +1,50 @@
+.label {
+  background-color: $light-gray;
+  border-radius: 5px;
+  color: $white;
+  font-size: .6rem;
+  margin-left: 0.8rem;
+  padding: 0.166665rem 0.8rem;
+  font-weight: bold;
+  display: inline-flex;
+  flex-direction: row;
+
+  & .material-icons {
+    font-size: .875rem;
+  }
+
+  &.large {
+    font-size: .75rem;
+    padding: calc(#{0.8rem} / 2) 0.8rem;
+
+    .material-icons {
+      font-size: 1.125rem;
+    }
+  }
+
+  &--new {
+    background-color: $orange;
+  }
+
+  &--multistop {
+    background-color: $blue;
+  }
+
+  &--box-truck {
+    background-color: $green;
+  }
+
+  &__state {
+    &--en_route, &--arrived, &--signed {
+      background-color: $orange;
+    }
+
+    &--delivered {
+      background-color: $green;
+    }
+
+    &--undeliverable {
+      background-color: $red;
+    }
+  }
+}
